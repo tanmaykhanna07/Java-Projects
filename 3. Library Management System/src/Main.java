@@ -1,19 +1,18 @@
 import java.util.Scanner;
 
-public class Main{
-    void main(String[] args){
+public class Main {
+    void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         Librarian librarian = new Librarian();
         Items book = new Book("Hunting Adeline", "Someone", "Penguin", "Hardover", Items.Status.AVAILABLE);
 
-
-        while(true){
+        while (true) {
             System.out.println(" 1. Issue Item \n 2. Return Item \n 3. Check Deadline \n 4. Exit");
             System.out.println("Enter choice: ");
             int a = scanner.nextInt();
 
-            switch (a){
+            switch (a) {
                 case 1:
                     librarian.issueItem(book);
                     break;
@@ -33,5 +32,3 @@ public class Main{
         }
     }
 }
-
-

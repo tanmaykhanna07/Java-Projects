@@ -1,7 +1,7 @@
 import java.time.*;
 import java.util.*;
 
-class CardPayment extends Payment{
+class CardPayment extends Payment {
     private String cardNumber;
     private String cvv;
     private LocalDate expDate;
@@ -9,15 +9,14 @@ class CardPayment extends Payment{
 
     @Override
     protected boolean validatePayment() {
-        if(checkCardNumber() && checkCVV() && checkExpiry()){
+        if (checkCardNumber() && checkCVV() && checkExpiry()) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-
-    CardPayment(double amount, int transactionID, String cardNumber, String cvv, LocalDate expDate, String name){
+    CardPayment(double amount, int transactionID, String cardNumber, String cvv, LocalDate expDate, String name) {
         super(amount, transactionID);
         this.cardNumber = cardNumber;
         this.cvv = cvv;
@@ -25,39 +24,44 @@ class CardPayment extends Payment{
         this.name = name;
     }
 
-    public String getCardNumber(){
+    public String getCardNumber() {
         return cardNumber;
     }
-    public String getCVV(){
+
+    public String getCVV() {
         return cvv;
     }
-    public LocalDate getExpDate(){
+
+    public LocalDate getExpDate() {
         return expDate;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
 
-    public boolean checkCardNumber(){
-        if(getCardNumber().length() != 16){
+    public boolean checkCardNumber() {
+        if (getCardNumber().length() != 16) {
             return false;
-        }else{
+        } else {
             return true;
         }
 
     }
-    public boolean checkExpiry(){
-        if(LocalDate.now().isBefore(getExpDate())){
+
+    public boolean checkExpiry() {
+        if (LocalDate.now().isBefore(getExpDate())) {
             return true;
-        }else{ 
+        } else {
             return false;
         }
 
     }
-    public boolean checkCVV(){
-        if(getCVV().length() == 3 || getCVV().length() == 4){
+
+    public boolean checkCVV() {
+        if (getCVV().length() == 3 || getCVV().length() == 4) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

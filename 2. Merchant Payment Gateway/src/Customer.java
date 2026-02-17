@@ -5,25 +5,26 @@ public class Customer {
     private String email;
     private String customerID;
 
-    Customer(String name, String email, String customerID){
+    Customer(String name, String email, String customerID) {
         this.name = name;
         this.email = email;
         this.customerID = customerID;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public String getEmail(){
+
+    public String getEmail() {
         return email;
     }
-    public String getCustomerID(){
+
+    public String getCustomerID() {
         return customerID;
     }
 
-    public void makePayment(Payment payment){
+    public void makePayment(Payment payment) {
         payment.processPayment();
         System.out.println("Transaction Status: " + payment.getStatus());
     }
 }
-

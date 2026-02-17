@@ -31,11 +31,7 @@ class UPIPayment extends Payment{
 
     public boolean checkPhoneNumber(){
         if(getPhone().length() == 10){
-            if(getPhone().charAt(0) == '6' || getPhone().charAt(0) == '7' || getPhone().charAt(0) == '8' || getPhone().charAt(0) == '9'){
-                return true;
-            }else{
-               return false;
-            }
+            return getPhone().charAt(0) == '6' || getPhone().charAt(0) == '7' || getPhone().charAt(0) == '8' || getPhone().charAt(0) == '9';
         }else{
             return false;
         }
