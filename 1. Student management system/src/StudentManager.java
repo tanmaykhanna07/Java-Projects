@@ -6,6 +6,7 @@ public class StudentManager {
    
 
     public void addDetails1(String name, int age, int rollNumber, String grade, String section){
+
         students.add(new Student(name, age, rollNumber, grade, section));
     }
     public void addDetails2(String name, int age, int rollNumber){

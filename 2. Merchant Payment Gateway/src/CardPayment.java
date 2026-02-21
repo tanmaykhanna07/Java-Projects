@@ -41,11 +41,7 @@ class CardPayment extends Payment {
     }
 
     public boolean checkCardNumber() {
-        if (getCardNumber().length() != 16) {
-            return false;
-        } else {
-            return true;
-        }
+        return getCardNumber().length() == 16;
 
     }
 

@@ -13,6 +13,8 @@ A simulation of different payment methods implemented using inheritance and poly
 ### Library Management System
 A structured system with different roles and item types. Uses enums for status handling and demonstrates clean object modeling.
 
+### Notification System
+A basic system that uses interfaces to push different types of notifications to the user.
 ## Technologies Used
 
 - Java
