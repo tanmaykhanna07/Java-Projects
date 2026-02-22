@@ -1,5 +1,6 @@
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 
@@ -104,13 +105,21 @@ public class StudentManager {
         }
     }
     //Serialization
-    public void toWrite() throws Exception{
-        String filename = "/home/tanmay-khanna/Desktop/Java Projects/5.Student Management System v2/src/Data/data.dat";
+    public void toWrite() throws IOException{
+        String filename = "./5.Student Management System v2/src/Data/data.dat";
 
         try(FileOutputStream fos = new FileOutputStream(filename); ObjectOutputStream oos = new ObjectOutputStream(fos)){
-            for(int i = 0; i < students.size(); i++){
-                
-            }
+            oos.writeObject(students);
         }
     }
+    //De-Serialization
+    public void toRead() throws IOException, ClassNotFoundException{
+        String filename = "./5.Student Management System v2/src/Data/data.dat";
+
+        try(FileInputStream fis = new FileInputStream(filename); ObjectInputStream ois = new ObjectInputStream(fis)){
+            
+            this.students = (ArrayList<Student>)ois.readObject();
+            
+        }
+    }   
 }

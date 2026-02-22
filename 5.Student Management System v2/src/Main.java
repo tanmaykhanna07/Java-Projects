@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -6,6 +8,16 @@ public class Main {
         boolean check = true;
         Scanner inpObj = new Scanner(System.in);
         StudentManager manager = new StudentManager();
+
+        try{
+            manager.toRead();
+        }catch(ClassNotFoundException e){
+            System.out.println(e);
+        }catch(FileNotFoundException e){
+            System.out.println(e);
+        }catch(IOException e) {
+            System.out.println(e);
+        }
 
         while (check) {
             System.out.print(
@@ -94,6 +106,14 @@ public class Main {
                     System.out.println(e);
                 }
             }else if (choice == 6) {
+                try{
+                    manager.toWrite();
+
+                }catch(FileNotFoundException e){
+                    System.out.println(e);
+                } catch(IOException e){
+                    System.out.println(e); 
+                }
                 check = false;
                 inpObj.close();
             } else {
