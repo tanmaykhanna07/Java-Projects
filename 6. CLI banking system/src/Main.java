@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -9,8 +11,12 @@ public class Main {
         
         try{
             manager.toRead();
-        }catch(){
-
+        }catch(FileNotFoundException e){
+            System.out.println(e);
+        }catch(ClassNotFoundException e){
+            System.out.println(e);
+        }catch(IOException e){
+            System.out.println(e);
         }
 
         while(check){
@@ -69,6 +75,13 @@ public class Main {
                     System.out.println(e);
                 }
             } else if(choice == 5){
+                try{
+                    manager.toWrite();
+                }catch(FileNotFoundException e){
+                    System.out.println(e);
+                }catch(IOException e){
+                    System.out.println(e);
+                }
                 input.close();
                 check = false;
             }
