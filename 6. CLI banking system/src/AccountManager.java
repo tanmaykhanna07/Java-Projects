@@ -15,45 +15,46 @@ public class AccountManager {
         accounts.add(new AccountDetails(name, cardNumber, initialBalance));
     }
 
-    public void viewBalance(String accountNumber){
+    public int viewBalance(String accountNumber){
         boolean checkAcount = false;
         for(int i= 0; i < accounts.size() ; i ++){
             if(accounts.get(i).getAccNumber().equals(accountNumber)){
-                System.out.println("Your balance is: " + accounts.get(i).getBalance()); 
                 checkAcount = true;
+                return accounts.get(i).getBalance();    
             }
         }if(!checkAcount){
             throw new AccountNotFoundException();
         }
+        return -1;
     }
 
 
     public void depositMoney(int depositAmount, String accountNumber){
         boolean accountCheck = false;
-        if(depositAmount <= 0){
-            throw new InvalidTransactionException();
-        }
-        else{
-            for(int i = 0; i < accounts.size() ; i++){
-                if(accounts.get(i).getAccNumber().equals(accountNumber)){
-                    accounts.get(i).setBalance(depositAmount + accounts.get(i).getBalance());
-                    accountCheck = true;
-                    break;
+        for(int i = 0; i < accounts.size() ; i++){
+            if(accounts.get(i).getAccNumber().equals(accountNumber)){
+                if(depositAmount <= 0){
+                    throw new InvalidTransactionException();
                 }
+                accounts.get(i).setBalance(depositAmount + accounts.get(i).getBalance());
+                accountCheck = true;
+                break;
             }
-            if(!accountCheck){
-                throw new AccountNotFoundException();
-            }
-        } 
-    }
+        }
+        if(!accountCheck){
+            throw new AccountNotFoundException();
+           }
+    } 
+    
 
     public void withdrawMoney(int withdrawAmount, String accountNumber){
         boolean accountCheck = false;
         for(int i = 0 ;i < accounts.size() ; i++){
-            if(withdrawAmount > accounts.get(i).getBalance()){
-                throw new InsufficientFundsException();   
-            } 
+            
             if(accounts.get(i).getAccNumber().equals(accountNumber)){
+                if(withdrawAmount > accounts.get(i).getBalance()){
+                    throw new InsufficientFundsException();   
+                } 
                 accounts.get(i).setBalance(accounts.get(i).getBalance() - withdrawAmount);
                 accountCheck = true;
                 break;
