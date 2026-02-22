@@ -108,7 +108,9 @@ public class StudentManager {
         String filename = "/home/tanmay-khanna/Desktop/Java Projects/5.Student Management System v2/src/Data/data.dat";
 
         try(FileOutputStream fos = new FileOutputStream(filename); ObjectOutputStream oos = new ObjectOutputStream(fos)){
-            
+            for(int i = 0; i < students.size(); i++){
+                
+            }
         }
     }
 }
