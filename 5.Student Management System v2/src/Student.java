@@ -23,6 +23,9 @@ public class Student {
     public String getSection(){
         return section;
     }
+    public static String getSchoolName(){
+        return schoolName;
+    }
 
     public Student(String name, int age, int rollNumber, String grade, String section) {
         if(age < 0 || age > 120){
