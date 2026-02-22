@@ -1,3 +1,8 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+
 import java.util.ArrayList;
 
 public class StudentManager {
@@ -96,6 +101,14 @@ public class StudentManager {
         }
         if (!isFound) {
             throw new StudentNotFoundException();
+        }
+    }
+    //Serialization
+    public void toWrite() throws Exception{
+        String filename = "/home/tanmay-khanna/Desktop/Java Projects/5.Student Management System v2/src/Data/data.dat";
+
+        try(FileOutputStream fos = new FileOutputStream(filename); ObjectOutputStream oos = new ObjectOutputStream(fos)){
+            
         }
     }
 }
